@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MovieApp.Console/MovieApp.Console.csproj" />
+  <Project Path="MovieApp.Domain/MovieApp.Domain.csproj" />
+  <Project Path="MovieApp.Repository/MovieApp.Repository.csproj" />
+  <Project Path="MovieApp.Service/MovieApp.Service.csproj" />
+</Solution>
