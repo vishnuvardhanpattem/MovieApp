@@ -19,11 +19,12 @@ MovieService movieService = new MovieService(movieRepository, ack);
 while (true)
 {
     Console.WriteLine("Choose the Options");
-    Console.WriteLine("1.Add Movie \n2.Remove Movie \n3.Get Movie By Id \n4.Get All Movies \n5.Get All Movies By Language \n6.Exit");
+    Console.WriteLine("1.Add Movie \n2.Remove Movie \n3.Get Movie By Id \n4.Get All Movies \n5.Get All Movies By Language \n6.Get Total Number of Movies \n7.Get Total Count of Movies by language \n8.Get Movies by Languages \n9.Exit");
     int operation = int.Parse(Console.ReadLine());
     switch (operation)
     {
-        case 1: Console.WriteLine("Enter the Movie Details To add into Movie Collection");
+        case 1: 
+            Console.WriteLine("Enter the Movie Details To add into Movie Collection");
             Console.WriteLine("Enter the Title : ");
             string title = Console.ReadLine();
             Console.WriteLine("Enter the director name : ");
@@ -82,7 +83,8 @@ while (true)
 
             break;
 
-        case 2: Console.WriteLine("Enter the Movie Id to remove the movie from collection");
+        case 2: 
+            Console.WriteLine("Enter the Movie Id to remove the movie from collection");
             try
             {
                 int movieId = int.Parse(Console.ReadLine());
@@ -93,7 +95,8 @@ while (true)
                 throw new FormatException("Invalid Movie Id. Please enter a number.");
             }
             break;
-        case 3: Console.WriteLine("Enter the Movie Id to get details");
+        case 3: 
+            Console.WriteLine("Enter the Movie Id to get details");
             try
             {
                 int movieId = int.Parse(Console.ReadLine());
@@ -104,15 +107,29 @@ while (true)
                 throw new FormatException("Invalid Movie Id. Please enter a number.");
             }
             break;
-        case 4: Console.WriteLine("Here is the listed movies in Movie Collection");
+        case 4: 
+            Console.WriteLine("Here is the listed movies in Movie Collection");
             movieService.GetAllMovieList();
             break;
-        case 5: Console.WriteLine("Get all Movies by Languages");
+        case 5: 
+            Console.WriteLine("Get all Movies by Languages");
             string movieLanguage = Console.ReadLine();
             movieService.GetMoviesByLanguage(movieLanguage);
             break;
+        case 6: 
+            Console.WriteLine("Get Count of Movies in Movie Collection");
+            movieService.GetTotalNumberOfMovies();
+            break;
+        case 7: 
+            Console.WriteLine("Get Count of Movies by Language");
+            movieService.GetTotalCountOfMoviesByLanguage();
+            break;
+        case 8:
+            Console.WriteLine("Displaying movies grouped by language:");
+            movieService.GetTotalMoviesGroupedByLanguage();
+            break;
 
-        default: Console.WriteLine("Exit");
+        default: Console.WriteLine("Exiting the Movie Manager Console. Goodbye!");
             return;
 
     }
